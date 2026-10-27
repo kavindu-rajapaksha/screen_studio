@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';"
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recording Toolbar</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 10px 14px;
+            background: #111720;
+            color: #edf2f7;
+            font-family: Arial, sans-serif;
+            user-select: none;
+            -webkit-app-region: drag;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            height: 100%;
+        }
+
+        .recording-info {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .recording-dot {
+            width: 10px;
+            height: 10px;
+            background: #ff4d5e;
+            border-radius: 50%;
+            animation: pulse 1.2s infinite;
+        }
+
+        .timer {
+            font-size: 16px;
+            font-weight: bold;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button {
+            border: 1px solid #34404e;
+            border-radius: 7px;
+            padding: 9px 12px;
+            background: #222c39;
+            color: #edf2f7;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            -webkit-app-region: no-drag;
+        }
+
+        button:hover {
+            background: #344253;
+        }
+
+        #pauseButton {
+            color: #6be6a4;
+        }
+
+        #stopButton {
+            background: #49232b;
+            border-color: #71333e;
+            color: #ff9da5;
+        }
+
+        #stopButton:hover {
+            background: #60303a;
+        }
+
+        .paused .recording-dot {
+            background: #f5c451;
+            animation: none;
+        }
+
+        .paused .timer {
+            color: #f5c451;
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: 0.35;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbar" id="toolbar">
+        <div class="recording-info">
+            <span class="recording-dot"></span>
+            <span class="timer" id="timer">00:00:00</span>
+        </div>
+
+        <div class="controls">
+            <button id="pauseButton" type="button" disabled>Pause</button>
+            <button id="stopButton" type="button" disabled>Stop</button>
+        </div>
+    </div>
+
+    <script src="toolbar.js"></script>
+</body>
+</html>

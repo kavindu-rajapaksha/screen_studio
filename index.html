@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2>◉ Screen Studio</h2>
+
+            <p class="label">WORKSPACE</p>
+
+            <button class="nav active" id="recorderNav">
+                ▣ Recorder
+            </button>
+
+            <button class="nav" id="recordingsNav">
+                ▤ Recordings
+            </button>
+
+            <button class="nav" id="settingsNav">
+                ⚙ Settings
+            </button>
+
+            <div class="status">
+                ● Ready to record
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- Recorder Page -->
+            <section id="recorderPage">
+
+                <header>
+                    <div>
+                        <small>WORKSPACE / RECORDER</small>
+                        <h1>Screen Recorder</h1>
+                    </div>
+
+                    <span class="badge">● System ready</span>
+                </header>
+
+                <section class="welcome">
+                    <h2>Capture your screen.</h2>
+                    <p>Record tutorials, demos, and your desktop.</p>
+                </section>
+
+                <div class="layout">
+
+                    <!-- Capture Setup -->
+                    <section class="card">
+
+                        <h3>Capture setup</h3>
+                        <p>Choose what you want to record.</p>
+
+                        <label>RECORDING SOURCE</label>
+
+                        <div class="sources">
+                            <button class="source selected" data-source="screen">
+                                ▣<br>
+                                <b>Full screen</b>
+                            </button>
+
+                            <button class="source" data-source="window">
+                                ▢<br>
+                                <b>App window</b>
+                            </button>
+
+                            <button class="source" data-source="area">
+                                ⌗<br>
+                                <b>Custom area</b>
+                            </button>
+                        </div>
+
+                        <hr>
+
+                        <label>AUDIO INPUTS</label>
+
+                        <div class="setting">
+                            <span>Microphone</span>
+                            <input type="checkbox" id="microphoneEnabled" disabled>
+                        </div>
+
+                        <div class="setting">
+                            <span>System audio</span>
+                            <input type="checkbox" id="systemAudioEnabled" disabled>
+                        </div>
+
+                        <hr>
+
+                        <label for="quality">VIDEO QUALITY</label>
+
+                        <select id="quality" disabled>
+                            <option value="1080">1080p - High</option>
+                            <option value="720">720p - Standard</option>
+                            <option value="480">480p - Compact</option>
+                        </select>
+
+                        <label class="save-label" for="saveLocation">
+                            SAVE LOCATION
+                        </label>
+
+                        <input
+                            class="location"
+                            id="saveLocation"
+                            value="Videos/Screen Studio"
+                            readonly
+                        >
+
+                    </section>
+
+                    <!-- Recording Controls -->
+                    <section class="card recorder">
+
+                        <h3>Recording controls</h3>
+
+                        <div class="preview">
+
+                            <div class="screen-icon">▶</div>
+
+                            <b id="previewText">
+                                Full screen selected
+                            </b>
+
+                            <p>Screen preview will appear here</p>
+
+                        </div>
+
+                        <div class="timer" id="timer">
+                            00:00:00
+                        </div>
+
+                        <p class="timer-status" id="status">
+                            Waiting to start
+                        </p>
+
+                        <button id="start" class="start">
+                            ● Start recording
+                        </button>
+
+                        <div class="buttons">
+                            <button id="pause" disabled>
+                                Ⅱ Pause
+                            </button>
+
+                            <button id="stop" disabled>
+                                ■ Stop
+                            </button>
+                        </div>
+
+                        <p class="note" id="note">
+                            Screen Studio is ready.
+                        </p>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+            <!-- Recordings Page -->
+            <section id="recordingsPage" hidden>
+
+                <header>
+                    <div>
+                        <small>WORKSPACE / RECORDINGS</small>
+                        <h1>My Recordings</h1>
+                    </div>
+                </header>
+
+                <section class="card">
+
+                    <h3>Saved recordings</h3>
+
+                    <p>View and manage your recorded videos.</p>
+
+                    <div class="buttons">
+
+                        <button id="refreshRecordings">
+                            ↻ Refresh
+                        </button>
+
+                        <button id="openRecordingsFolder">
+                            Open Folder
+                        </button>
+
+                    </div>
+
+                    <div id="recordingsList">
+                        <p>Loading recordings...</p>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- Settings Page -->
+            <section id="settingsPage" hidden>
+    <header>
+        <div>
+            <small>WORKSPACE / SETTINGS</small>
+            <h1>Settings</h1>
+        </div>
+        <span class="badge">Application Settings</span>
+    </header>
+
+    <section class="card">
+        <h3>Recording Settings</h3>
+        <p>Configure your recording preferences.</p>
+
+        <label for="settingsQuality">DEFAULT VIDEO QUALITY</label>
+        <select id="settingsQuality">
+            <option value="1080">1080p - High</option>
+            <option value="720">720p - Standard</option>
+            <option value="480">480p - Compact</option>
+        </select>
+
+        <label for="videoFormat">VIDEO FORMAT</label>
+        <select id="videoFormat">
+            <option value="mp4">MP4</option>
+            <option value="webm">WebM</option>
+        </select>
+
+        <hr>
+
+        <div class="setting">
+            <label for="settingsMicrophone">Microphone</label>
+            <input type="checkbox" id="settingsMicrophone">
+        </div>
+
+        <div class="setting">
+            <label for="settingsSystemAudio">System Audio</label>
+            <input type="checkbox" id="settingsSystemAudio">
+        </div>
+
+        <div class="setting">
+            <label for="floatingToolbar">Show floating toolbar</label>
+            <input type="checkbox" id="floatingToolbar">
+        </div>
+
+        <label for="settingsSaveLocation" class="save-label">
+            SAVE LOCATION
+        </label>
+        <input
+            class="location"
+            id="settingsSaveLocation"
+            type="text"
+            autocomplete="off">
+
+        <div class="buttons">
+            <button id="saveSettings" type="button">Save Settings</button>
+            <button id="resetSettings" type="button">Restore Defaults</button>
+        </div>
+
+        <p id="settingsMessage" role="status" aria-live="polite"></p>
+    </section>
+</section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,497 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0c1016;
+  color: #edf2f7;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 230px;
+  background: #111720;
+  padding: 25px 18px;
+  border-right: 1px solid #28313d;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  font-size: 19px;
+  margin-bottom: 40px;
+}
+
+.label, label {
+  color: #8d9aaa;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.nav {
+  background: transparent;
+  color: #a9b4c3;
+  border: 0;
+  text-align: left;
+  padding: 13px;
+  border-radius: 8px;
+  margin: 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav.active, .nav:hover {
+  background: #20382e;
+  color: #6be6a4;
+}
+
+.status {
+  margin-top: auto;
+  padding: 12px 5px;
+  color: #6be6a4;
+  font-size: 12px;
+}
+
+main {
+  flex: 1;
+  padding: 28px;
+  min-width: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #28313d;
+  padding-bottom: 20px;
+}
+
+header small {
+  color: #8d9aaa;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.badge {
+  color: #6be6a4;
+  font-size: 12px;
+}
+
+.welcome {
+  margin: 28px 0;
+}
+
+.welcome h2 {
+  margin-bottom: 8px;
+}
+
+p {
+  color: #91a0b2;
+  font-size: 13px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: #151c26;
+  border: 1px solid #293340;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card > p {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 20px 0 12px;
+}
+
+.sources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.source {
+  min-width: 0;
+  padding: 15px 4px;
+  background: #1b2430;
+  border: 1px solid #34404e;
+  color: #b8c4d3;
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 2;
+  font-size: 16px;
+}
+
+.source b {
+  font-size: 11px;
+}
+
+.source.selected {
+  background: #1b3329;
+  border-color: #61dfa0;
+  color: #75e8ad;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #293340;
+  margin: 24px 0;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 13px;
+}
+
+input[type="checkbox"] {
+  accent-color: #60df9c;
+  width: 17px;
+  height: 17px;
+}
+
+select, .location {
+  width: 100%;
+  padding: 12px;
+  border-radius: 7px;
+  background: #1b2430;
+  color: white;
+  border: 1px solid #34404e;
+}
+
+.save-label {
+  margin-top: 22px;
+}
+
+.preview {
+  background: #0d1219;
+  border: 1px solid #293340;
+  border-radius: 8px;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.screen-icon {
+  font-size: 32px;
+  color: #6be6a4;
+  margin-bottom: 15px;
+}
+
+.preview b {
+  font-size: 13px;
+}
+
+.preview p {
+  font-size: 11px;
+}
+
+.timer {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-status {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+button {
+  font-family: inherit;
+}
+
+.start, .buttons button {
+  padding: 13px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.start {
+  width: 100%;
+  background: #65e6a6;
+  color: #10251a;
+  border: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.buttons button {
+  flex: 1;
+  background: #222c39;
+  color: #e6edf5;
+  border: 1px solid #364353;
+}
+
+.buttons button:last-child {
+  background: #321f27;
+  border-color: #59333c;
+  color: #ff9da5;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.note {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    width: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 65px;
+    padding: 15px 5px;
+  }
+
+  .sidebar h2 {
+    font-size: 0;
+  }
+
+  .label, .status {
+    display: none;
+  }
+
+  .nav {
+    font-size: 0;
+    text-align: center;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .badge {
+    display: none;
+  }
+
+  .sources {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Keyboard Focus */
+
+.nav:focus-visible {
+    outline: 2px solid #6c8cff;
+    outline-offset: 2px;
+}
+
+.source-dialog {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.source-dialog-content {
+    background: #ffffff;
+    color: #222222;
+    padding: 25px;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 12px;
+}
+
+.source-dialog-content h2 {
+    margin-top: 0;
+}
+
+#sourceList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.source-option {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #222222;
+    cursor: pointer;
+    text-align: left;
+}
+
+.source-option:hover {
+    background: #e0e7ff;
+    border-color: #6366f1;
+}
+
+#cancelSourceSelection {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.recording-thumbnail {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    background-color: #222;
+    margin-bottom: 12px;
+}
+
+.recording-item {
+    padding: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Settings Page */
+
+#settingsPage[hidden],
+#recordingsPage[hidden],
+#recorderPage[hidden] {
+    display: none !important;
+}
+
+#settingsPage:not([hidden]) {
+    display: block;
+    width: 100%;
+}
+
+#settingsPage .card {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 24px;
+}
+
+#settingsPage .setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 42px;
+}
+
+#settingsPage select,
+#settingsPage .location {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+}
+
+#settingsPage .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#settingsPage .buttons button {
+    min-height: 44px;
+}
+
+#settingsPage #settingsMessage {
+    min-height: 18px;
+}
+
+/* Settings Page Layout */
+
+#settingsPage[hidden],
+#recordingsPage[hidden],
+#recorderPage[hidden] {
+    display: none !important;
+}
+
+#settingsPage:not([hidden]) {
+    display: block;
+    width: 100%;
+}
+
+#settingsPage > .card {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 24px;
+}
+
+#settingsPage .card > label {
+    display: block;
+    margin: 20px 0 12px;
+}
+
+#settingsPage .setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+#settingsPage .setting label {
+    margin: 0;
+    color: inherit;
+    font-size: 13px;
+    letter-spacing: normal;
+}
+
+#settingsPage select,
+#settingsPage input.location {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+}
+
+#settingsPage .buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
